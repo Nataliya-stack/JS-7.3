@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @import "tailwindcss"; 
+
+    @layer base {
+      :root {
+        @apply text-base md:text-sm; 
+        line-height: 1.6;
+      }
+
+      p {
+        @apply mb-2
+      }
+
+      button {
+        @apply rounded-md bg-slate-100 hover:bg-slate-200 border border-slate-300 px-4 py-2 md:py-1 text-base md:text-sm font-medium cursor-pointer disabled:opacity-50 transition-colors
+      }
+      ol {
+        @apply list-decimal list-outside ml-6 mb-4
+      }
+      
+      kbd, a {
+        @apply text-blue-800
+      }
+
+      a {
+        @apply border-b
+      }
+
+      input {
+        @apply border border-slate-300 rounded-md px-3 bg-white focus:outline-none focus:border-cyan-600 focus:ring-1 focus:ring-cyan-600
+      }
+
+      hr {
+        @apply my-3
+      }
+    }
+  </style>  
+  <link rel="shortcut icon" href="shopping-cart.svg" type="image/svg">
+  <title>JS - 7.3</title>
+</head>
+
+<body class="container w-full md:w-5/6 mx-auto my-0 px-4 md:px-0 bg-linear-to-b from-cyan-50 to-cyan-100 text-gray-800 min-h-screen">  
+      <h1 class="font-bold text-2xl mb-4 mt-5">🍅 Lista de Compras</h1> 
+      <div class="mb-6 py-1 bg-cyan-950 rounded-full shadow-inner"></div> 
+
+      <div class="flex flex-col md:flex-row md:items-center gap-4 mb-6 bg-white p-4 rounded-xl shadow-xs border border-slate-100">
+          <label class="md:flex-initial font-medium text-gray-700" for="producto-input">Producto que deseas agregar:</label>         
+          <input class="flex-1 h-10" type="text" id="producto-input" placeholder="Ejemplo: Pan">        
+          <button class="h-10 md:px-6 bg-cyan-600 hover:bg-cyan-700 text-white! border-none" onclick="agregar()">Agregar</button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="w-full border border-slate-100 bg-white p-5 rounded-xl shadow-xs min-h-[200px]"> 
+              <h2 class="font-semibold text-lg mb-3 text-gray-700 border-b border-slate-100 pb-2">📋 Tu Lista</h2>
+              <ul start="0" id="lista-compras" class="text-gray-700 font-medium list-decimal list-inside"></ul>
+          </div>
+                
+          <div class="w-full border border-slate-100 bg-white p-5 rounded-xl shadow-xs text-center flex flex-col items-center justify-center min-h-[200px]">
+              <img class="inline w-1/3 md:w-1/4 max-w-[120px] mb-4 transition-transform hover:scale-105" src="./img/shopping-cart.svg" alt="carrito">
+              <p class="text-lg md:text-base font-medium text-gray-600 m-0">
+                Número de productos en el carrito: 
+                <span class="font-black text-xl text-red-600 ml-1" id="num-prod">0</span>
+              </p>
+          </div>
+      </div>
+
+    <p class="italic mt-4 text-sm text-gray-500 min-h-[24px]" id="mensaje">&nbsp;</p>
+  
+  <script src="./js/app.js"></script>
+</body>
+</html>
